@@ -3,6 +3,8 @@ Bitmap Converter for uGui
 
 A tool for converting bitmaps to C arrays for uGui ( )
 
+Based on https://github.com/DanNixon/GLCD-BitmapConverter
+
 Usage
 -----
 
