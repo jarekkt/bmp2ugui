@@ -21,7 +21,7 @@ def load_image(filename, resize_width, resize_height):
 def convert_pixel(image,x,y,colors):
     if colors == 'RGB565':
         r, g, b = image[x, y]
-        return ((r >> 3)<<11) | ((g >> 2)<<6) | ((b >> 3))
+        return ((r >> 3)<<11) | ((g >> 2)<<5) | ((b >> 3))
     else:
         return 0
     return 0
@@ -46,7 +46,7 @@ def c_array(filename,name,byte_stream,width,height,length,bpp,colors):
     file.write('};\n')
     file.write('\n')
 
-    file.write( str('const UG_BMP  %s = { %s_data,%d /* width*/ ,%d /* height */,BMP_%s,BMP_%s };\n' % (name,name,width,height,bpp,colors) ))
+    file.write( str('const UG_BMP  %s = { (void *)%s_data,%d /* width*/ ,%d /* height */,BMP_%s,BMP_%s };\n' % (name,name,width,height,bpp,colors) ))
 
 def c_stream(image,width,height,bpp,colors):
 
